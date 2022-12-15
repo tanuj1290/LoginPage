@@ -20,6 +20,8 @@
             android:layout_gravity="center_horizontal"
             android:textSize="30sp"
             android:textStyle="bold"
+            app:fontFamily="serif-monospace"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
             android:layout_marginBottom="10dp" />
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/user_email_container"
