@@ -21,6 +21,7 @@
             android:textSize="30sp"
             android:textStyle="bold"
             app:fontFamily="serif-monospace"
+            android:textColor="@color/purple_700"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
             android:layout_marginBottom="10dp" />
         <com.google.android.material.textfield.TextInputLayout
@@ -29,11 +30,11 @@
             android:layout_height="wrap_content"
             app:hintEnabled="true"
             app:boxBackgroundMode="outline"
-            app:boxStrokeColor="@color/black"
+            app:boxStrokeColor="@color/purple_500"
             app:counterEnabled="true"
             app:counterMaxLength="30"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            app:hintTextColor="@color/black">
+            app:hintTextColor="@color/purple_500">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
@@ -51,9 +52,9 @@
             app:counterMaxLength="20"
             app:hintEnabled="true"
             app:boxBackgroundMode="outline"
-            app:boxStrokeColor="@color/black"
+            app:boxStrokeColor="@color/purple_700"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            app:hintTextColor="@color/black"
+            app:hintTextColor="@color/purple_700"
             app:passwordToggleEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -66,46 +67,58 @@
                 android:inputType="textPassword"/>
         </com.google.android.material.textfield.TextInputLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="fill_horizontal"
-            android:layout_marginTop="5dp"
-            android:orientation="horizontal"
-            android:paddingStart="15dp"
-            android:paddingEnd="15dp"
-            android:gravity="center_horizontal">
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/new_user"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/new_user"
-                android:textSize="15sp"
-                android:paddingBottom="5dp"
-                android:paddingTop="5dp"/>
-            <Space
-                android:layout_width="20dp"
-                android:layout_height="wrap_content"/>
-            <TextView
-                android:id="@+id/forgot_password"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Forgot Password?"
-                android:textSize="15sp"
-                android:paddingBottom="5dp"
-                android:paddingTop="5dp"/>
-
-        </LinearLayout>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/login_button"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:backgroundTint="@color/purple_500"
             android:layout_height="wrap_content"
+            android:textColor="@color/white"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:text="Login"
             android:textSize="20sp"
             android:onClick="loggedin"/>
 
-    </LinearLayout>
+
+        <TextView
+            android:id="@+id/forgot_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Forgot Password?"
+            android:textSize="18sp"
+            android:textColor="@color/purple_700"
+            android:layout_gravity="center"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Are you a new User?"
+                android:textSize="18sp"/>
+            <Space
+                android:layout_width="12dp"
+                android:layout_height="match_parent"/>
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/new_user"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/new_user"
+                android:textColor="@color/purple_700"
+                android:textSize="18sp"/>
+        </LinearLayout>
+
+
+
+        </LinearLayout>
+
+
+
 
 </ScrollView>
