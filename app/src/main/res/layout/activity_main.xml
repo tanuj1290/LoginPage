@@ -10,8 +10,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_gravity="center_vertical"
-        android:layout_margin="10dp">
+        android:layout_gravity="center"
+        android:layout_margin="18dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -33,6 +33,11 @@
             app:boxStrokeColor="@color/purple_500"
             app:counterEnabled="true"
             app:counterMaxLength="30"
+
+            app:helperTextEnabled="true"
+            app:helperTextTextColor="@color/design_default_color_error"
+
+            app:boxStrokeErrorColor="@color/design_default_color_error"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             app:hintTextColor="@color/purple_500">
 
@@ -42,14 +47,20 @@
                 android:maxLength="30"
                 android:lines="1"
                 android:id="@+id/user_id"
-                android:hint="Email, Phone number"/>
+                android:hint="Email, Phone number" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/password_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:counterEnabled="true"
             app:counterMaxLength="20"
+
+            android:layout_marginTop="10dp"
+            app:helperTextEnabled="true"
+            app:helperTextTextColor="@color/design_default_color_error"
+
             app:hintEnabled="true"
             app:boxBackgroundMode="outline"
             app:boxStrokeColor="@color/purple_700"
@@ -69,14 +80,14 @@
 
 
         <com.google.android.material.button.MaterialButton
+            android:layout_marginTop="8dp"
             android:id="@+id/login_button"
             android:layout_width="wrap_content"
             android:layout_gravity="center"
-            android:backgroundTint="@color/purple_500"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:text="Login"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:enabled="false"
             android:textSize="20sp"
             android:onClick="loggedin"/>
 
