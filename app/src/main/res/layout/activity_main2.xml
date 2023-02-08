@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".MainActivity2">
 
     <LinearLayout
@@ -18,6 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:text="SIGN UP PAGE"
+            android:textColor="@color/black"
             android:textSize="30sp"
             android:textStyle="bold"
             app:fontFamily="serif-monospace" />
@@ -29,9 +31,11 @@
             android:layout_height="wrap_content"
             app:counterEnabled="true"
             app:counterMaxLength="30"
-
+            android:textColorHint="#8F8E8E"
+            app:boxStrokeColor="@color/black"
             android:layout_marginBottom="8dp"
             app:helperTextEnabled="true"
+            app:hintTextColor="@color/black"
             app:helperTextTextColor="@color/design_default_color_error"
 
             app:hintEnabled="true">
@@ -41,6 +45,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Enter your name"
+                android:textColor="@color/black"
                 android:inputType="text"
                 android:lines="1"
                 android:maxLength="30" />
@@ -53,7 +58,9 @@
             android:layout_height="wrap_content"
             app:counterEnabled="true"
             app:counterMaxLength="30"
-
+            android:textColorHint="#8F8E8E"
+            app:hintTextColor="@color/black"
+            app:boxStrokeColor="@color/black"
             android:layout_marginBottom="8dp"
             app:helperTextEnabled="true"
             app:helperTextTextColor="@color/design_default_color_error"
@@ -66,6 +73,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Enter your email Id"
+                android:textColor="@color/black"
+                android:textColorHint="#8A8A8A"
                 android:inputType="textEmailAddress"
                 android:lines="1"
                 android:maxLength="30" />
@@ -78,11 +87,12 @@
             android:layout_height="wrap_content"
             app:counterEnabled="true"
             app:counterMaxLength="12"
-
+            android:textColorHint="#8F8E8E"
+            app:boxStrokeColor="@color/black"
             android:layout_marginBottom="8dp"
             app:helperTextEnabled="true"
             app:helperTextTextColor="@color/design_default_color_error"
-
+            app:hintTextColor="@color/black"
             app:hintEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -91,6 +101,7 @@
                 android:layout_height="wrap_content"
                 android:hint="Enter your Phone Number"
                 android:inputType="text"
+                android:textColor="@color/black"
                 android:lines="1"
                 android:maxLength="12" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -99,6 +110,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Gender"
+            android:textColor="@color/black"
+            android:textColorHint="#8A8A8A"
             android:textAppearance="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:textSize="18sp" />
 
@@ -113,18 +126,21 @@
                 android:id="@+id/male_radio_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/black"
                 android:text="Male" />
 
             <RadioButton
                 android:id="@+id/female_radio_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/black"
                 android:text="Female" />
 
             <RadioButton
                 android:id="@+id/others_radio_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/black"
                 android:text="Others" />
         </RadioGroup>
 
@@ -138,30 +154,26 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="vertical"
+            android:layout_marginStart="10dp">
 
             <com.google.android.material.checkbox.MaterialCheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="XML &amp; Java"
+                android:textColor="@color/black"
                 app:useMaterialThemeColors="true" />
 
-            <Space
-                android:layout_width="10dp"
-                android:layout_height="match_parent" />
-
             <com.google.android.material.checkbox.MaterialCheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/black"
                 android:text="XML &amp; Kotlin" />
 
-            <Space
-                android:layout_width="10dp"
-                android:layout_height="match_parent" />
-
             <com.google.android.material.checkbox.MaterialCheckBox
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/black"
                 android:text="Jetpack Compose" />
 
         </LinearLayout>
@@ -178,8 +190,11 @@
             android:layout_marginBottom="8dp"
             app:helperTextEnabled="true"
             app:helperTextTextColor="@color/design_default_color_error"
-
-            app:passwordToggleEnabled="true">
+            android:textColorHint="#8F8E8E"
+            app:boxStrokeColor="@color/black"
+            app:hintTextColor="@color/black"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="@color/black">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/password_1_edittext"
@@ -187,6 +202,8 @@
                 android:layout_height="wrap_content"
                 android:hint="Enter your Password"
                 android:inputType="textPassword"
+                android:textColor="@color/black"
+                android:textColorHint="#8A8A8A"
                 android:lines="1"
                 android:maxLength="20" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -199,11 +216,13 @@
             app:counterEnabled="true"
             app:counterMaxLength="20"
             app:hintEnabled="true"
-
+            app:passwordToggleTint="@color/black"
             android:layout_marginBottom="8dp"
             app:helperTextEnabled="true"
             app:helperTextTextColor="@color/design_default_color_error"
-
+            app:hintTextColor="@color/black"
+            android:textColorHint="#8F8E8E"
+            app:boxStrokeColor="@color/black"
             app:passwordToggleEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -212,6 +231,8 @@
                 android:layout_height="wrap_content"
                 android:hint="Re-enter your Password"
                 android:inputType="textPassword"
+                android:textColor="@color/black"
+
                 android:lines="1"
                 android:maxLength="20" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -221,7 +242,9 @@
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="@color/black"
             android:enabled="false"
+            app:strokeColor="@color/black"
             android:text="Sign up" />
     </LinearLayout>
 

@@ -1,9 +1,12 @@
 package com.example.loginpage
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Patterns
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
@@ -14,7 +17,8 @@ import java.util.regex.Pattern
 
 class MainActivity : AppCompatActivity() {
 
-    private val PASSWORD_PATTERN: Pattern = Pattern.compile("^" +
+    private val PASSWORD_PATTERN: Pattern = Pattern.compile(
+        "^" +
                 "(?=.*[@#$%^&+=])" +  // at least 1 special character
                 "(?=\\S+$)" +  // no white spaces
                 ".{4,}" +  // at least 4 characters
@@ -24,6 +28,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+//        val sharedp:SharedPreferences = this.getSharedPreferences(MainActivity2.sharedPrefFilename, MODE_PRIVATE)
 
         var temp_for_buttton_enabled_id: Boolean = false
         var temp_for_buttton_enabled_password: Boolean = false
@@ -36,6 +42,7 @@ class MainActivity : AppCompatActivity() {
         val userEmailContainer = findViewById<TextInputLayout>(R.id.user_email_container)
         val passwordContainer = findViewById<TextInputLayout>(R.id.password_container)
 
+        val sharedPref: SharedPreferences = getSharedPreferences("MyLogin", MODE_PRIVATE)
 
         userIdEmailPhone.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
@@ -45,8 +52,9 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun afterTextChanged(p0: Editable?) {
-                if (android.util.Patterns.EMAIL_ADDRESS.matcher(userIdEmailPhone.text.toString())
-                        .matches() || android.util.Patterns.PHONE.matcher(userIdEmailPhone.text.toString()).matches()
+                if (Patterns.EMAIL_ADDRESS.matcher(userIdEmailPhone.text.toString())
+                        .matches() || Patterns.PHONE.matcher(userIdEmailPhone.text.toString())
+                        .matches()
                 ) {
                     userEmailContainer.helperText = null
                     userEmailContainer.isHelperTextEnabled = false
@@ -73,31 +81,20 @@ class MainActivity : AppCompatActivity() {
 
             override fun afterTextChanged(p0: Editable?) {
                 var password: String = userPassword.text.toString()
-                if (password.isEmpty()){
+                if (password.isEmpty()) {
                     passwordContainer.helperText = "Enter a password"
                     passwordContainer.isHelperTextEnabled = true
                     temp_for_buttton_enabled_password = false
-                }else if(!PASSWORD_PATTERN.matcher(password).matches()){
+                } else if (!PASSWORD_PATTERN.matcher(password).matches()) {
                     passwordContainer.helperText = "Password is too weak"
                     passwordContainer.isHelperTextEnabled = true
                     temp_for_buttton_enabled_password = false
-                }else{
+                } else {
                     passwordContainer.helperText = null
                     passwordContainer.isHelperTextEnabled = false
                     temp_for_buttton_enabled_password = true
                 }
-//
-//                if (userPassword.text.toString().isNotEmpty()){
-//                    passwordContainer.helperText = null
-//                    passwordContainer.isHelperTextEnabled = true
-////                    loggedin.isEnabled = true
-//                    temp_for_buttton_enabled_password = true
-//                }
-//                else{
-//                    passwordContainer.helperText = "* Enter a password"
-////                    loggedin.isEnabled = false
-//                    temp_for_buttton_enabled_password = false
-//                }
+
 
                 if (temp_for_buttton_enabled_id && temp_for_buttton_enabled_password)
                     loggedin.isEnabled = true
@@ -109,7 +106,16 @@ class MainActivity : AppCompatActivity() {
         loggedin.setOnClickListener() {
 //            var idEmailOrPhone: String = userIdEmailPhone.text.toString()
 //            var inputPassword: String = userPassword.text.toString()
-                Toast.makeText(this, "You are now logged in", Toast.LENGTH_SHORT).show()
+            var emailOrPhone = userIdEmailPhone.text.toString().trim()
+            var password = userPassword.text.toString().trim()
+            if ((sharedPref.getString("email", "") == emailOrPhone || sharedPref.getString("phone", "") == emailOrPhone) &&
+                sharedPref.getString("password", "") == password) {
+                Toast.makeText(this, "You are Succesfully logged in", Toast.LENGTH_SHORT).show()
+            }else{
+                Toast.makeText(this, "Incorrect Login Credentials", Toast.LENGTH_SHORT).show()
+            }
+
+
         }
 
         newUser.setOnClickListener() {

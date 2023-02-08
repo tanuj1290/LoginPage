@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".MainActivity">
 
     <LinearLayout
@@ -21,7 +22,7 @@
             android:textSize="30sp"
             android:textStyle="bold"
             app:fontFamily="serif-monospace"
-            android:textColor="@color/purple_700"
+            android:textColor="@color/black"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
             android:layout_marginBottom="10dp" />
         <com.google.android.material.textfield.TextInputLayout
@@ -30,23 +31,24 @@
             android:layout_height="wrap_content"
             app:hintEnabled="true"
             app:boxBackgroundMode="outline"
-            app:boxStrokeColor="@color/purple_500"
+            app:boxStrokeColor="@color/black"
             app:counterEnabled="true"
             app:counterMaxLength="30"
-
             app:helperTextEnabled="true"
+            app:hintTextColor="@color/black"
             app:helperTextTextColor="@color/design_default_color_error"
-
+            android:textColorHint="#8F8E8E"
             app:boxStrokeErrorColor="@color/design_default_color_error"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            app:hintTextColor="@color/purple_500">
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:maxLength="30"
                 android:lines="1"
+                android:textColor="@color/black"
                 android:id="@+id/user_id"
+
                 android:hint="Email, Phone number" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -56,16 +58,18 @@
             android:layout_height="wrap_content"
             app:counterEnabled="true"
             app:counterMaxLength="20"
-
             android:layout_marginTop="10dp"
             app:helperTextEnabled="true"
             app:helperTextTextColor="@color/design_default_color_error"
 
             app:hintEnabled="true"
+
             app:boxBackgroundMode="outline"
-            app:boxStrokeColor="@color/purple_700"
+            app:boxStrokeColor="@color/black"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            app:hintTextColor="@color/purple_700"
+            app:hintTextColor="@color/black"
+            android:textColorHint="#8F8E8E"
+            app:passwordToggleTint="@color/black"
             app:passwordToggleEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -74,6 +78,8 @@
                 android:maxLength="20"
                 android:hint="Password"
                 android:lines="1"
+                android:textColor="@color/black"
+                android:textColorHint="#8A8A8A"
                 android:id="@+id/user_password"
                 android:inputType="textPassword"/>
         </com.google.android.material.textfield.TextInputLayout>
@@ -86,6 +92,8 @@
             android:layout_gravity="center"
             android:layout_height="wrap_content"
             android:text="Login"
+            android:textColor="@color/black"
+            app:strokeColor="@color/black"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:enabled="false"
             android:textSize="20sp"
@@ -111,6 +119,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Are you a new User?"
+                android:textColor="@color/black"
                 android:textSize="18sp"/>
             <Space
                 android:layout_width="12dp"
